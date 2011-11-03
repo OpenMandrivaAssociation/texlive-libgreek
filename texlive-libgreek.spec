@@ -1,3 +1,9 @@
+# revision 21725
+# category Package
+# catalog-ctan /macros/latex/contrib/libgreek
+# catalog-date 2011-03-14 12:22:04 +0100
+# catalog-license lppl1.3
+# catalog-version 1.0
 Name:		texlive-libgreek
 Version:	1.0
 Release:	1
@@ -46,6 +52,7 @@ have been installed.
 #- source
 %doc %{_texmfdistdir}/source/latex/libgreek/libgreek.dtx
 %doc %{_texmfdistdir}/source/latex/libgreek/libgreek.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -56,3 +63,5 @@ have been installed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
