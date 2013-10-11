@@ -1,12 +1,12 @@
-# revision 21725
+# revision 27789
 # category Package
 # catalog-ctan /macros/latex/contrib/libgreek
-# catalog-date 2011-03-14 12:22:04 +0100
+# catalog-date 2012-09-23 17:25:02 +0200
 # catalog-license lppl1.3
 # catalog-version 1.0
 Name:		texlive-libgreek
 Version:	1.0
-Release:	2
+Release:	3
 Summary:	Use Libertine or Biolinum Greek glyphs in mathematics
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/libgreek
@@ -39,6 +39,7 @@ have been installed.
 %{_texmfdistdir}/tex/latex/libgreek/libgreek.sty
 %doc %{_texmfdistdir}/doc/latex/libgreek/README
 %doc %{_texmfdistdir}/doc/latex/libgreek/libgreek.pdf
+%doc %{_texmfdistdir}/doc/latex/libgreek/libgreekcheck.tex
 #- source
 %doc %{_texmfdistdir}/source/latex/libgreek/libgreek.dtx
 %doc %{_texmfdistdir}/source/latex/libgreek/libgreek.ins
@@ -52,17 +53,3 @@ have been installed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.0-2
-+ Revision: 753306
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.0-1
-+ Revision: 718856
-- texlive-libgreek
-- texlive-libgreek
-- texlive-libgreek
-- texlive-libgreek
-
