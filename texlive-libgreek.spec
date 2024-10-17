@@ -3,7 +3,7 @@ Version:	27789
 Release:	2
 Summary:	Use Libertine or Biolinum Greek glyphs in mathematics
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/libgreek
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/libgreek
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.doc.r%{version}.tar.xz
