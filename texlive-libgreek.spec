@@ -1,50 +1,29 @@
-Name:		texlive-libgreek
-Version:	27789
-Release:	2
-Summary:	Use Libertine or Biolinum Greek glyphs in mathematics
+%global tl_name libgreek
+%global tl_revision 75712
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1
+Release:	%{tl_revision}.1
+Summary:	Greek letters in math mode from Libertinus or Linux Libertine/Biolinum
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/libgreek
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.source.r%{version}.tar.xz
+License:	lppl1.3c
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/libgreek.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package is for LaTeX users who wish to use the Libertine or
-Biolinum font for the Greek letters in math mode. It is not
-necessary to load the libertine package itself, but of course
-the Linux-Libertine/Biolinum fonts and LaTeX support files must
-have been installed.
+This package allows LaTeX users (especially if using traditional
+LaTeX/pdfLaTeX) to set the Greek letters in math mode using the glyphs
+from the Libertinus Serif or Sans font via the font support files
+provided by Bob Tennent's libertinus-type1 package. All Greek letters
+are defined both in \...up and \...it variants. The style (ISO, TeX, or
+French i.e. upright) can be modified midway in the document. A "legacy"
+mode uses font support from the (obsolete) libertine-legacy package
+which maps to the Linux Libertine or Biolinum fonts. This package is for
+users who only want to customize Greek letters in math mode.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/libgreek/libgreek.sty
-%doc %{_texmfdistdir}/doc/latex/libgreek/README
-%doc %{_texmfdistdir}/doc/latex/libgreek/libgreek.pdf
-%doc %{_texmfdistdir}/doc/latex/libgreek/libgreekcheck.tex
-#- source
-%doc %{_texmfdistdir}/source/latex/libgreek/libgreek.dtx
-%doc %{_texmfdistdir}/source/latex/libgreek/libgreek.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
